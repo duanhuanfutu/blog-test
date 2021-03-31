@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <h2>浅析 URL</h2>
+        <h3>一.URL 包含哪几部分，每部分分别有什么作用</h3>
+          <p>URL 包含了：协议+域名或ip+端口号+路径+查询字符串+锚点
+          <br>例如：https://www.baidu.com/s?wd=hello&rsv_spt#5</p>
+        <ol>
+          <li><h4>协议</h4></li>
+           <p>“http/https 超文本传输协议/超文本传输安全协议” 规定请求的格式是什么，响应的格式是什么</p>
+          
+          <li><h4>域名或IP </h4></li>
+          <h5>① ip</h5>
+          <p>ip 约定了如何定位一台设备；以及如何封装数据报文，以跟其他设备交流。有几个比较特殊的ip例如： 127.0.0.1 表示自己，本地；localhost 通过hosts指定为自己；0.0.0.0 不表示什么设备</p>
+          <h5>② 域名</h5>
+          <p>域名是对 ip 的别称，例如xxxx.com。如果想知道一个域名对应的ip是什么，可以通过 ping 域名得知。例如想知道 www.baidu.com 的对应ip，可以在camder 输入 ping baidu.com 。</p>
+          <p>额外的知识点：一个域名可以对应不同的 ip ，这个叫做均衡负载，防止一台机器扛不住；一个 ip 也可以对应不同的域名，这个叫做共享主机，一般是没钱的开发者会这么做。</p>
+          <p>
+            域名有顶级域名，一级域名，二级域名。com 是顶级域名；xxx.com 是二级域名，俗称一级域名；www.xxxx.com 是三级域名，俗称二级域名；他们是父子关系；xxx.com和www.xxx.com 可以是同一家公司也可以不是；越长越小。
+          </p>
+          <h5>
+            域名和ip怎么对应起来？
+         </h5>
+          <p>
+            通过 DNS 对应；具体过程是：
+            <ul>
+              <li>浏览器向电信/联通提供的 DNS 服务器询问域名对应什么 IP</li>
+              <li>电信/联通会回答一个 IP </li>
+              <li>然后浏览器会向对应 IP 的80/443 端口发送请求</li>
+              <li>请求内容是查看内容的首页</li>
+            </ul>
+          <br>可在 camder 输入nslookup xxx.com查看域名对应的ip
+          
+          </p>
+         
+         
+          <li>
+            <h4>
+              端口号 port
+            </h4>       
+          </li>
+        <p>
+          一台机器可以提供不同的端口，用于定位一个端口的服务。例如：要提供http服务最好使用80端口；要提供https服务最好使用443端口；要提供 ftp 服务最好使用21端口。
+        </p>
+        <p>
+          额外知识点：一个机器一共有65535个端口，前1024个端口（0-1023号）主要是给机器使用的，最好不要更改，要更改比较麻烦。
+        </p>
+          <li><h4>路径</h4></li>
+        <p>
+          请求不同的页面；同一个服务器上使用不同的路径得到不同的页面，没有必要有后缀
+        </p>
+          <li><h4>查询参数</h4></li>
+        <p>
+          同一个页面的不同的内容
+        </p>
+          <li><h4>
+            锚点
+          </h4></li>
+        <p>
+          同一个页面，同一个查询结果的不同内容，#后的内容为锚点
+        </p>
+        </ol>
+      </section>
+</body>
+</html>
